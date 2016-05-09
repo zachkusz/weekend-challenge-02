@@ -46,19 +46,16 @@ $(document).ready(function(){
         }
 
         function updateDom(oldNum) {
-          $('.' + (i + oldNum)).fadeOut(200, deleter()); //fading removal of previously viewed
-
-          $('#container').append('<div class="people ' + i + '"</div>').hide().fadeIn(200);;
+          $('.' + (i + oldNum)).fadeOut(300, deleter()); //fading removal of previously viewed
+          $('#container').append('<div class="people ' + i + '"</div>').hide().fadeIn(300);;
           $('#container').children().last().append('<h3>' + data.mu[i].name + '</h3>');
           $('#container').children().last().append('<p>Github Username: ' + data.mu[i].git_username + '</p>');
           $('#container').children().last().append('<p>Shoutout: ' + data.mu[i].shoutout + '</p>');
-          //removes the last item that appeared.
-
         }
-        
+
         //used by updateDom to remove with a fadeout
         function deleter() {
-          $(this).parent().remove();
+          $('.people').remove();
         }
 
         function buildBoxes() {
