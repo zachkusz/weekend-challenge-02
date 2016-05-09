@@ -1,0 +1,41 @@
+body {
+  background-color: #22DBE8;
+}
+.people {
+  height: 175px;
+  width: 700px;
+  background-color: #32FFD4;
+}
+
+h1, h3 {
+  color: #D84528;
+  text-align: center;
+  margin: 10px auto 10px auto;
+}
+
+h3 {
+  text-align: left;
+}
+
+.box {
+  border: 2px solid grey;
+  background-color: #25FF80;
+  display: inline-block;
+  height: 25px;
+  width: 25px;
+  /*margin: 5px;*/
+}
+
+#boxes {
+  height: 40px;
+  width: 700px;
+  margin: 10px auto 10px 5px;
+}
+
+.altered {
+  background-color: #D84528;
+}
+
+button {
+  margin: 5px;
+}
