@@ -7,8 +7,11 @@ $(document).ready(function(){
         updateDom(2); //initial page append. needs a non 0 number here.
         buildBoxes(); //appends boxes to dom
         highlightBox(2); //initial highlight. needs non 0 number here.
+        var timeID = window.setInterval(autoClick, 2000);
 
         $('.previous').on('click', function(){
+          timerStop(); //clears autoscroll on click
+          timeID = window.setInterval(autoClick, 2000);
           i--;
           // rolls over the counter when it gets too low
           if (i < 0){
@@ -25,6 +28,8 @@ $(document).ready(function(){
         });
 
         $('.next').on('click', function(){
+          timerStop();
+          timeID = window.setInterval(autoClick, 2000);
           i++;
           if (i > 21){
             i = 0;
@@ -65,6 +70,24 @@ $(document).ready(function(){
           i = 0;
         }
 
+        function autoClick() {
+          console.log("autoclicked");
+          i++;
+          if (i > 21){
+            i = 0;
+            console.log("you looped back!");
+          }
+          if (i > 0) {
+            updateDom(-1);
+            highlightBox(-1);
+          } else if (i == 0) {
+            updateDom(21);
+            highlightBox(21);
+          }
+        }
+        function timerStop(){
+          clearInterval(timeID);
+        }
       } //success stop
     });
 });
