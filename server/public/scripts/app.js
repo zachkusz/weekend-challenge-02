@@ -15,15 +15,15 @@ $(document).ready(function(){
           i--;
           // rolls over the counter when it gets too low
           if (i < 0){
-            i = 21;
+            i = (data.mu.length - 1); //test!
             console.log("you looped to the top!");
           }
-          if (i < 21) {
+          if (i < (data.mu.length - 1)) { //test
             updateDom(1);
             highlightBox(1);
-          } else if (i == 21) {
-            updateDom(-21);
-            highlightBox(-21);
+          } else if (i == (data.mu.length - 1)) { //testing adaptability instead of hardcode -21
+            updateDom(-(data.mu.length - 1));
+            highlightBox(-(data.mu.length - 1));
           }
         });
 
@@ -31,7 +31,7 @@ $(document).ready(function(){
           timerStop();
           timeID = window.setInterval(autoClick, 10000);
           i++;
-          if (i > 21){
+          if (i > (data.mu.length - 1)){
             i = 0;
             console.log("you looped back!");
           }
@@ -39,8 +39,8 @@ $(document).ready(function(){
             updateDom(-1);
             highlightBox(-1);
           } else if (i == 0) {
-            updateDom(21);
-            highlightBox(21);
+            updateDom(data.mu.length - 1);
+            highlightBox(data.mu.length - 1);
           }
         });
 
@@ -73,7 +73,7 @@ $(document).ready(function(){
         function autoClick() {
           console.log("autoclicked");
           i++;
-          if (i > 21){
+          if (i > (data.mu.length - 1)){
             i = 0;
             console.log("you looped back!");
           }
@@ -81,10 +81,11 @@ $(document).ready(function(){
             updateDom(-1);
             highlightBox(-1);
           } else if (i == 0) {
-            updateDom(21);
-            highlightBox(21);
+            updateDom(data.mu.length - 1);
+            highlightBox(data.mu.length - 1);
           }
         }
+
         function timerStop(){
           clearInterval(timeID);
         }
